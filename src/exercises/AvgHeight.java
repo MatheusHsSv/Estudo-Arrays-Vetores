@@ -40,8 +40,8 @@ public class AvgHeight {
 
         double percentualMenores = ((double) underAge / n) * 100;
         System.out.printf("Altura média: %.2f%n ", heightavg);
-        System.out.printf("Pessoas com menos de 16 anos: %.1f%%n", percentualMenores);
-
+        System.out.printf("Pessoas com menos de 16 anos: %.1f%%\n", percentualMenores);
+        sc.nextLine();
         String guysUnderAge;
         for (int i=0; i<n; i++){
             if (vect[i].getAge() < 16){
