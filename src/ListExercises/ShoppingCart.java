@@ -13,9 +13,9 @@ public class ShoppingCart {
         List<ShoppingCartSystem> list = new ArrayList<>();
 
 
-        System.out.print("Choose an option: ");
         int opc;
         do {
+            System.out.print("Choose an option: ");
             opc = scanner.nextInt();
 
             if (opc == 1){
@@ -24,8 +24,11 @@ public class ShoppingCart {
                 RemoveItem(list);
             }else if (opc == 3){
                 ShowSoppingCart(list);
+            } else if (opc == 4) {
+                CalculateTheCart(list);
+            } else if (opc > 4 && opc != 0) {
+                System.out.println("This option not exist!, try again another one: ");
             }
-
 
 
         }while (opc != 0);
@@ -73,12 +76,28 @@ public static void RemoveItem(List<ShoppingCartSystem> list){
 }
 
 public static void ShowSoppingCart(List<ShoppingCartSystem> list){
-    System.out.println("Your Shopping cart has: ");
+    if (list.size() > 0){
+        System.out.println("Your Shopping cart has: ");
     for (ShoppingCartSystem obj : list){
         System.out.println("Name: " + obj.getName() + ", Price: " + obj.getPrice());
+    }}else {
+        System.out.println("Your shopping cart is empty");
     }
 }
 
+public static void CalculateTheCart(List<ShoppingCartSystem> list){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Calculating the items of your cart...");
+        double total = 0;
+        for (ShoppingCartSystem item : list){
+            System.out.println(item.getName() + ", " + item.getPrice());
+            total += item.getPrice();
+
+        }
+    System.out.println("The total of your purchase is: $" + total);
+
+
+}
 }
 
 
